@@ -45,6 +45,10 @@ class FileEntityTest {
         String filePath = "path/to/file";
         fileEntity.setFilePath(filePath);
         assertEquals(filePath, fileEntity.getFilePath());
+
+        String hash = "hash";
+        fileEntity.setHash(hash);
+        assertEquals(hash, fileEntity.getHash());
     }
 
     @Test
@@ -56,7 +60,7 @@ class FileEntityTest {
         LocalDateTime uploadTimestamp = LocalDateTime.now();
         String filePath = "/path/to/file";
 
-        FileEntity fileEntity = new FileEntity(fileName, contentType, size, uploadTimestamp, filePath);
+        FileEntity fileEntity = new FileEntity(fileName, contentType, size, uploadTimestamp, filePath, "hash");
         fileEntity.setId(id);
 
         String expectedToString = "FileEntity{" +

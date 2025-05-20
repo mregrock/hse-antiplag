@@ -36,6 +36,9 @@ public class FileEntity {
   @Column(nullable = false)
   private String filePath;
 
+  @Column(nullable = false, unique = true)
+  private String hash;
+
   /**
    * Default constructor for JPA.
    */
@@ -50,18 +53,21 @@ public class FileEntity {
    * @param size            size of the file
    * @param uploadTimestamp timestamp of the upload
    * @param filePath        path to the file
+   * @param hash            hash of the file
    */
   public FileEntity(
       String fileName,
       String contentType,
       Long size,
       LocalDateTime uploadTimestamp,
-      String filePath) {
+      String filePath,
+      String hash) {
     this.fileName = fileName;
     this.contentType = contentType;
     this.size = size;
     this.uploadTimestamp = uploadTimestamp;
     this.filePath = filePath;
+    this.hash = hash;
   }
 
   public UUID getId() {
@@ -123,4 +129,13 @@ public class FileEntity {
         ", filePath='" + filePath + '\'' +
         '}';
   }
+
+  public String getHash() {
+    return hash;
+  }
+
+  public void setHash(String hash) {
+    this.hash = hash;
+  }
+
 }

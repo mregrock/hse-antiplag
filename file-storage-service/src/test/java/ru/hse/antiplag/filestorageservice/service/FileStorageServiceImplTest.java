@@ -87,14 +87,14 @@ class FileStorageServiceImplTest {
       IOException exception = assertThrows(IOException.class, () -> {
         fileStorageService.storeFile(multipartFile);
       });
-      assertTrue(exception.getMessage().contains("Could not store file error-file.txt"));
+      assertTrue(exception.getMessage().contains("error-file.txt"));
   }
 
 
   @Test
   void getFileMetadata_shouldReturnFileEntity_whenFileExists() {
     UUID fileId = UUID.randomUUID();
-    FileEntity mockEntity = new FileEntity("test.txt", "text/plain", 100L, LocalDateTime.now(), "/path/to/file.txt");
+    FileEntity mockEntity = new FileEntity("test.txt", "text/plain", 100L, LocalDateTime.now(), "/path/to/file.txt", "hash");
     mockEntity.setId(fileId);
     when(fileRepository.findById(fileId)).thenReturn(Optional.of(mockEntity));
 
@@ -123,7 +123,7 @@ class FileStorageServiceImplTest {
     Path filePath = tempDir.resolve(fileName);
     Files.writeString(filePath, "Test content");
 
-    FileEntity mockEntity = new FileEntity(fileName, "text/plain", 12L, LocalDateTime.now(), filePath.toString());
+    FileEntity mockEntity = new FileEntity(fileName, "text/plain", 12L, LocalDateTime.now(), filePath.toString(), "hash");
     mockEntity.setId(fileId);
     when(fileRepository.findById(fileId)).thenReturn(Optional.of(mockEntity));
     Optional<Resource> resourceOptional = fileStorageService.loadFileAsResource(fileId);
@@ -146,7 +146,7 @@ class FileStorageServiceImplTest {
   @Test
   void loadFileAsResource_shouldReturnEmpty_whenFileNotExistsOnDisk() {
     UUID fileId = UUID.randomUUID();
-    FileEntity mockEntity = new FileEntity("ghost-file.txt", "text/plain", 0L, LocalDateTime.now(), tempDir.resolve("non-existent-file.txt").toString());
+    FileEntity mockEntity = new FileEntity("ghost-file.txt", "text/plain", 0L, LocalDateTime.now(), tempDir.resolve("non-existent-file.txt").toString(), "hash");
     mockEntity.setId(fileId);
     when(fileRepository.findById(fileId)).thenReturn(Optional.of(mockEntity));
 

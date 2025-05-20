@@ -47,7 +47,7 @@ class FileControllerTest {
         "Test content".getBytes(StandardCharsets.UTF_8)
     );
 
-    FileEntity mockEntity = new FileEntity(fileName, MediaType.TEXT_PLAIN_VALUE, 12L, LocalDateTime.now(), "/path/to/" + fileName);
+    FileEntity mockEntity = new FileEntity(fileName, MediaType.TEXT_PLAIN_VALUE, 12L, LocalDateTime.now(), "/path/to/" + fileName, "hash");
     mockEntity.setId(fileId);
 
     given(fileStorageService.storeFile(any(MockMultipartFile.class))).willReturn(mockEntity);
@@ -91,7 +91,7 @@ class FileControllerTest {
     String fileContent = "This is the content!";
     Resource resource = new ByteArrayResource(fileContent.getBytes(StandardCharsets.UTF_8));
 
-    FileEntity mockEntity = new FileEntity(fileName, MediaType.TEXT_PLAIN_VALUE, (long) fileContent.length(), LocalDateTime.now(), "/irrelevant/path/");
+    FileEntity mockEntity = new FileEntity(fileName, MediaType.TEXT_PLAIN_VALUE, (long) fileContent.length(), LocalDateTime.now(), "/irrelevant/path/", "hash");
 
     given(fileStorageService.loadFileAsResource(fileId)).willReturn(Optional.of(resource));
     given(fileStorageService.getFileMetadata(fileId)).willReturn(Optional.of(mockEntity));
@@ -116,7 +116,7 @@ class FileControllerTest {
   void getFileMetadata_shouldReturnMetadata_whenFileExists() throws Exception {
     UUID fileId = UUID.randomUUID();
     String fileName = "metadata-test.txt";
-    FileEntity mockEntity = new FileEntity(fileName, "application/json", 200L, LocalDateTime.now(), "/path/to/meta.json");
+    FileEntity mockEntity = new FileEntity(fileName, "application/json", 200L, LocalDateTime.now(), "/path/to/meta.json", "hash");
     mockEntity.setId(fileId);
     given(fileStorageService.getFileMetadata(fileId)).willReturn(Optional.of(mockEntity));
 

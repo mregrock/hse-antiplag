@@ -12,9 +12,10 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import ru.hse.antiplag.filestorageservice.domain.FileEntity;
 import ru.hse.antiplag.filestorageservice.repository.FileRepository;
+import ru.hse.antiplag.filestorageservice.utils.FileHashUtil;
 
-import jakarta.annotation.PostConstruct;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -55,6 +56,21 @@ public class FileStorageServiceImpl implements FileStorageService {
   @Transactional
   public FileEntity storeFile(MultipartFile file) throws IOException {
     String originalFileName = StringUtils.cleanPath(Objects.requireNonNull(file.getOriginalFilename()));
+
+    String hash;
+    try (InputStream inputStream = file.getInputStream()) {
+      hash = FileHashUtil.calculateSHA256(inputStream);
+    } catch (Exception e) {
+      logger.error("Error calculating hash for file {}. Error: {}", originalFileName, e.getMessage());
+      throw new IOException("Error calculating hash for file " + originalFileName + ". Please try again!", e);
+    }
+
+    Optional<FileEntity> existingFile = fileRepository.findByHash(hash);
+    if (existingFile.isPresent()) {
+      logger.info("File with hash {} already exists. Returning existing file.", hash);
+      return existingFile.get();
+    }
+
     String fileExtension = "";
     int i = originalFileName.lastIndexOf('.');
     if (i > 0) {
@@ -76,7 +92,8 @@ public class FileStorageServiceImpl implements FileStorageService {
         file.getContentType(),
         file.getSize(),
         LocalDateTime.now(),
-        targetLocation.toString()
+        targetLocation.toString(),
+        hash
     );
     return fileRepository.save(fileEntity);
   }
