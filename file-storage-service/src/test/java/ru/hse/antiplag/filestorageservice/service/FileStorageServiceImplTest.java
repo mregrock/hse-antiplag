@@ -1,4 +1,4 @@
- package ru.hse.antiplag.filestorageservice.service;
+package ru.hse.antiplag.filestorageservice.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -52,12 +52,12 @@ class FileStorageServiceImplTest {
   }
 
   @Test
-  void storeFile_shouldSaveFileAndMetadata() throws IOException {
+  void storeFileTest() throws IOException {
     MockMultipartFile multipartFile = new MockMultipartFile(
         "file",
-        "test-file.txt",
+        "test-aboba.txt",
         MediaType.TEXT_PLAIN_VALUE,
-        "Hello, World!".getBytes()
+        "Aboba, Kek!".getBytes()
     );
 
     ArgumentCaptor<FileEntity> fileEntityArgumentCaptor = ArgumentCaptor.forClass(FileEntity.class);
@@ -66,7 +66,7 @@ class FileStorageServiceImplTest {
     FileEntity savedEntity = fileStorageService.storeFile(multipartFile);
 
     assertThat(savedEntity).isNotNull();
-    assertThat(savedEntity.getFileName()).isEqualTo("test-file.txt");
+    assertThat(savedEntity.getFileName()).isEqualTo("test-aboba.txt");
     assertThat(savedEntity.getContentType()).isEqualTo(MediaType.TEXT_PLAIN_VALUE);
     assertThat(savedEntity.getSize()).isEqualTo(multipartFile.getSize());
     assertThat(savedEntity.getUploadTimestamp()).isNotNull();
@@ -75,26 +75,26 @@ class FileStorageServiceImplTest {
 
     verify(fileRepository).save(fileEntityArgumentCaptor.capture());
     FileEntity capturedEntity = fileEntityArgumentCaptor.getValue();
-    assertThat(capturedEntity.getFileName()).isEqualTo("test-file.txt");
+    assertThat(capturedEntity.getFileName()).isEqualTo("test-aboba.txt");
   }
 
   @Test
-  void storeFile_shouldThrowIOExceptionWhenCopyFails() throws IOException {
+  void storeFileErrorTest() throws IOException {
       MultipartFile multipartFile = Mockito.mock(MultipartFile.class);
-      when(multipartFile.getOriginalFilename()).thenReturn("error-file.txt");
-      when(multipartFile.getInputStream()).thenThrow(new IOException("Simulated stream error"));
+      when(multipartFile.getOriginalFilename()).thenReturn("error-aboba.txt");
+      when(multipartFile.getInputStream()).thenThrow(new IOException("Simulated aboba stream error"));
 
       IOException exception = assertThrows(IOException.class, () -> {
         fileStorageService.storeFile(multipartFile);
       });
-      assertTrue(exception.getMessage().contains("error-file.txt"));
+      assertTrue(exception.getMessage().contains("error-aboba.txt"));
   }
 
 
   @Test
-  void getFileMetadata_shouldReturnFileEntity_whenFileExists() {
+  void getMetadataOkTest() {
     UUID fileId = UUID.randomUUID();
-    FileEntity mockEntity = new FileEntity("test.txt", "text/plain", 100L, LocalDateTime.now(), "/path/to/file.txt", "hash");
+    FileEntity mockEntity = new FileEntity("aboba.txt", "text/plain", 100L, LocalDateTime.now(), "/path/to/aboba.txt", "hash-aboba");
     mockEntity.setId(fileId);
     when(fileRepository.findById(fileId)).thenReturn(Optional.of(mockEntity));
 
@@ -106,7 +106,7 @@ class FileStorageServiceImplTest {
   }
 
   @Test
-  void getFileMetadata_shouldReturnEmptyOptional_whenFileDoesNotExist() {
+  void getMetadataNotFoundTest() {
     UUID fileId = UUID.randomUUID();
     when(fileRepository.findById(fileId)).thenReturn(Optional.empty());
 
@@ -117,13 +117,13 @@ class FileStorageServiceImplTest {
   }
 
   @Test
-  void loadFileAsResource_shouldReturnResource_whenFileExistsAndReadable() throws IOException {
+  void loadResourceOkTest() throws IOException {
     UUID fileId = UUID.randomUUID();
-    String fileName = "readable-test.txt";
+    String fileName = "readable-aboba.txt";
     Path filePath = tempDir.resolve(fileName);
-    Files.writeString(filePath, "Test content");
+    Files.writeString(filePath, "Aboba test content");
 
-    FileEntity mockEntity = new FileEntity(fileName, "text/plain", 12L, LocalDateTime.now(), filePath.toString(), "hash");
+    FileEntity mockEntity = new FileEntity(fileName, "text/plain", 12L, LocalDateTime.now(), filePath.toString(), "hash-kek");
     mockEntity.setId(fileId);
     when(fileRepository.findById(fileId)).thenReturn(Optional.of(mockEntity));
     Optional<Resource> resourceOptional = fileStorageService.loadFileAsResource(fileId);
@@ -136,7 +136,7 @@ class FileStorageServiceImplTest {
   }
 
   @Test
-  void loadFileAsResource_shouldReturnEmpty_whenFileEntityNotFound() {
+  void loadResourceNoEntityTest() {
     UUID fileId = UUID.randomUUID();
     when(fileRepository.findById(fileId)).thenReturn(Optional.empty());
     Optional<Resource> resourceOptional = fileStorageService.loadFileAsResource(fileId);
@@ -144,9 +144,9 @@ class FileStorageServiceImplTest {
   }
 
   @Test
-  void loadFileAsResource_shouldReturnEmpty_whenFileNotExistsOnDisk() {
+  void loadResourceNoFileOnDiskTest() {
     UUID fileId = UUID.randomUUID();
-    FileEntity mockEntity = new FileEntity("ghost-file.txt", "text/plain", 0L, LocalDateTime.now(), tempDir.resolve("non-existent-file.txt").toString(), "hash");
+    FileEntity mockEntity = new FileEntity("ghost-aboba.txt", "text/plain", 0L, LocalDateTime.now(), tempDir.resolve("non-existent-aboba.txt").toString(), "hash-lol");
     mockEntity.setId(fileId);
     when(fileRepository.findById(fileId)).thenReturn(Optional.of(mockEntity));
 
