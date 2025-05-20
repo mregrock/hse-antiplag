@@ -1,0 +1,7 @@
+ru/hse/antiplag/filestorageservice/service/FileStorageServiceImpl.class
+ru/hse/antiplag/filestorageservice/FileStorageServiceApplication.class
+ru/hse/antiplag/filestorageservice/domain/FileEntity.class
+ru/hse/antiplag/filestorageservice/controller/FileController.class
+ru/hse/antiplag/filestorageservice/controller/FileController$UploadFileResponse.class
+ru/hse/antiplag/filestorageservice/service/FileStorageService.class
+ru/hse/antiplag/filestorageservice/repository/FileRepository.class
