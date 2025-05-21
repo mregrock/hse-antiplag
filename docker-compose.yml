@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SERVICES_FILE-STORAGE_BASE-URL=http://file-storage-service:8081
+      - SERVICES_FILE-ANALYSIS_BASE-URL=http://file-analysis-service:8082
+    depends_on:
+      - file-storage-service
+      - file-analysis-service
+    networks:
+      - antiplag-network
+
+  file-storage-service:
+    build:
+      context: ./file-storage-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - SERVER_PORT=8081
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/antiplag_db
+      - SPRING_DATASOURCE_USERNAME=antiplag
+      - SPRING_DATASOURCE_PASSWORD=antiplag
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - postgres
+    networks:
+      - antiplag-network
+
+  file-analysis-service:
+    build:
+      context: ./file-analysis-service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    environment:
+      - SERVER_PORT=8082
+      - FILE_STORAGE_SERVICE_URL=http://file-storage-service:8081/api/v1/files
+      - WORDCLOUD_SERVICE_URL=https://quickchart.io/wordcloud
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/antiplag_db
+      - SPRING_DATASOURCE_USERNAME=antiplag
+      - SPRING_DATASOURCE_PASSWORD=antiplag
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - file-storage-service
+      - postgres
+    networks:
+      - antiplag-network
+
+  postgres:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=antiplag
+      - POSTGRES_PASSWORD=antiplag
+      - POSTGRES_DB=antiplag_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - antiplag-network
+
+networks:
+  antiplag-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

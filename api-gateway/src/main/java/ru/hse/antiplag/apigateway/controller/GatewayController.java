@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.BodyInserters;
@@ -20,6 +21,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import ru.hse.antiplag.apigateway.dto.FileUploadResponse;
 import ru.hse.antiplag.apigateway.dto.GatewayAnalysisResult;
+import org.springframework.util.LinkedMultiValueMap;
 
 /**
  * REST controller for handling requests to the API Gateway.
@@ -66,27 +68,29 @@ public class GatewayController {
   /**
    * Uploads a file by proxying the multipart request to the FileStorageService.
    *
-   * @param partsMono a Mono containing the MultiValueMap of parts from the multipart request.
+   * @param filePartMono a Mono containing the FilePart for the 'file' part of the multipart request.
    * @return a Mono with FileUploadResponse from FileStorageService.
    */
   @PostMapping(value = "/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
   public Mono<FileUploadResponse> uploadFile(
-      @RequestBody Mono<MultiValueMap<String, Part>> partsMono) {
-    logger.info("API Gateway received request to upload a file (via partsMono).");
+      @RequestPart("file") Mono<FilePart> filePartMono) {
+    logger.info("API Gateway received request to upload a file (via filePartMono for 'file' part).");
 
-    return partsMono.flatMap(parts -> {
-      parts.forEach((key, value) -> {
-        value.forEach(part -> logger.info("Part name: {}, Part headers: {}", part.name(), part.headers()));
-      });
+    return filePartMono.flatMap(filePart -> {
+        MultiValueMap<String, Part> parts = new LinkedMultiValueMap<>();
+        parts.add(filePart.name(), filePart);
 
-      return fileStorageServiceWebClient.post()
-          .uri("/upload")
-          .contentType(MediaType.MULTIPART_FORM_DATA)
-          .body(BodyInserters.fromMultipartData(parts))
-          .retrieve()
-          .bodyToMono(FileUploadResponse.class)
-          .doOnSuccess(response -> logger.info("Successfully uploaded file via Gateway. Response: {}", response))
-          .doOnError(e -> logger.error("Error during file upload via Gateway. Error: {}", e.getMessage(), e));
+        logger.info("Processing part: name='{}', filename='{}', headers='{}'",
+            filePart.name(), filePart.filename(), filePart.headers());
+
+        return fileStorageServiceWebClient.post()
+            .uri("/api/v1/files/upload")
+            .contentType(MediaType.MULTIPART_FORM_DATA)
+            .body(BodyInserters.fromMultipartData(parts))
+            .retrieve()
+            .bodyToMono(FileUploadResponse.class)
+            .doOnSuccess(response -> logger.info("Successfully uploaded file via Gateway. Response: {}", response))
+            .doOnError(e -> logger.error("Error during file upload via Gateway. Error: {}", e.getMessage(), e));
     });
   }
 
@@ -100,7 +104,7 @@ public class GatewayController {
   public Mono<Resource> downloadFile(@PathVariable String fileId) {
     logger.info("API Gateway received request to download fileId: {}", fileId);
     return fileStorageServiceWebClient.get()
-        .uri("/download/{fileId}", fileId)
+        .uri("/api/v1/files/download/{fileId}", fileId)
         .accept(MediaType.APPLICATION_OCTET_STREAM)
         .retrieve()
         .bodyToMono(Resource.class)
