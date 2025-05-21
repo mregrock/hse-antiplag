@@ -132,7 +132,7 @@ public class FileAnalysisServiceImplTest {
     assertEquals(1, result.getTextStatistics().getParagraphCount());
     assertEquals(4, result.getTextStatistics().getWordCount());
     assertEquals(mockFileContent.length(), result.getTextStatistics().getCharacterCount());
-    assertEquals("/api/v1/files/download/" + wordCloudFileId.toString(), result.getWordCloudPath());
+    assertEquals("/api/gateway/analysis/wordcloud/" + wordCloudFileId.toString(), result.getWordCloudPath());
 
     verify(analysisResultRepository).findByFileId(fileId);
     verify(analysisResultRepository).save(any(AnalysisResultEntity.class));

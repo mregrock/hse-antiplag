@@ -13,12 +13,16 @@ import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.core.io.buffer.DefaultDataBufferFactory;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.MultipartBodyBuilder;
 import org.springframework.http.codec.multipart.FilePart;
+import org.springframework.http.HttpHeaders;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import ru.hse.antiplag.apigateway.dto.FileUploadResponse;
 import ru.hse.antiplag.apigateway.dto.GatewayAnalysisResult;
@@ -62,8 +66,7 @@ public class GatewayControllerTest {
     WebClient.RequestBodySpec requestBodySpecMock = Mockito.mock(WebClient.RequestBodySpec.class);
     WebClient.RequestHeadersSpec storageServicePostSpec = Mockito.mock(WebClient.RequestHeadersSpec.class);
     when(fileStorageServiceWebClient.post()).thenReturn(requestBodyUriSpecMock);
-    when(requestBodyUriSpecMock.uri(Mockito.eq("/upload"))).thenReturn(requestBodySpecMock);
-    when(requestBodySpecMock.contentType(any(MediaType.class))).thenReturn(requestBodySpecMock);
+    when(requestBodyUriSpecMock.uri(Mockito.eq("/api/v1/files/upload"))).thenReturn(requestBodySpecMock);
     when(requestBodySpecMock.body(any())).thenReturn(storageServicePostSpec);
     when(storageServicePostSpec.retrieve()).thenReturn(responseSpecMock);
 
@@ -106,7 +109,9 @@ public class GatewayControllerTest {
     when(responseSpecMock.bodyToMono(FileUploadResponse.class)).thenReturn(Mono.just(mockResponse));
 
     MultipartBodyBuilder builder = new MultipartBodyBuilder();
-    builder.part("file", new ByteArrayResource("dummy data".getBytes()));
+    builder.part("file", new ByteArrayResource("test content".getBytes()))
+        .filename("test-file.txt")
+        .contentType(MediaType.TEXT_PLAIN);
 
     webTestClient.post().uri("/api/gateway/upload")
         .contentType(MediaType.MULTIPART_FORM_DATA)

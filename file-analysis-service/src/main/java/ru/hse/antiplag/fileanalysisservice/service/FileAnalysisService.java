@@ -14,5 +14,13 @@ public interface FileAnalysisService {
    * @return the result of the analysis.
    */
   AnalysisResult analyzeFile(String fileId);
+
+  /**
+   * Retrieves the word cloud image as a resource.
+   *
+   * @param wordCloudImageId the ID of the word cloud image.
+   * @return the word cloud image as a Resource.
+   */
+  org.springframework.core.io.Resource getWordCloudResource(String wordCloudImageId);
 }
 

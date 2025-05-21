@@ -120,7 +120,7 @@ public class FileAnalysisServiceImpl implements FileAnalysisService {
     String wordCloudFileId = generateAndStoreWordCloud(fileId, fileContent);
     String wordCloudPath = "";
     if (wordCloudFileId != null && !wordCloudFileId.isEmpty()) {
-      wordCloudPath = "/api/v1/files/download/" + wordCloudFileId;
+      wordCloudPath = "/api/gateway/analysis/wordcloud/" + wordCloudFileId;
     } else if (wordCloudFileId == null && (fileContent != null && !fileContent.trim().isEmpty())) {
       logger.warn("Word cloud generation/storage failed for non-empty fileId: {}. Returning stats without saving.", fileId);
       TextStatistics currentStats = new TextStatistics(paragraphCount, wordCount, characterCount);
@@ -248,5 +248,28 @@ public class FileAnalysisServiceImpl implements FileAnalysisService {
         entity.getCharacterCount()
     );
     return new AnalysisResult(stats, entity.getWordCloudPath());
+  }
+
+  @Override
+  public Resource getWordCloudResource(String wordCloudImageId) {
+    logger.info("Attempting to fetch word cloud resource with ID: {}", wordCloudImageId);
+    try {
+      Resource resource = fileStorageWebClient.get()
+          .uri("/download/{fileId}", wordCloudImageId)
+          .accept(MediaType.IMAGE_PNG)
+          .retrieve()
+          .bodyToMono(Resource.class)
+          .block();
+
+      if (resource == null || !resource.exists() || !resource.isReadable()) {
+        logger.warn("Word cloud resource not found or not readable for ID: {}", wordCloudImageId);
+        return null;
+      }
+      logger.info("Successfully fetched word cloud resource for ID: {}", wordCloudImageId);
+      return resource;
+    } catch (Exception e) {
+      logger.error("Error fetching word cloud resource for ID: {}: {}", wordCloudImageId, e.getMessage(), e);
+      return null;
+    }
   }
 }

@@ -77,16 +77,16 @@ public class GatewayController {
     logger.info("API Gateway received request to upload a file (via filePartMono for 'file' part).");
 
     return filePartMono.flatMap(filePart -> {
-        MultiValueMap<String, Part> parts = new LinkedMultiValueMap<>();
-        parts.add(filePart.name(), filePart);
+
+        MultipartBodyBuilder builder = new MultipartBodyBuilder();
+        builder.part(filePart.name(), filePart);
 
         logger.info("Processing part: name='{}', filename='{}', headers='{}'",
             filePart.name(), filePart.filename(), filePart.headers());
 
         return fileStorageServiceWebClient.post()
             .uri("/api/v1/files/upload")
-            .contentType(MediaType.MULTIPART_FORM_DATA)
-            .body(BodyInserters.fromMultipartData(parts))
+            .body(BodyInserters.fromMultipartData(builder.build()))
             .retrieve()
             .bodyToMono(FileUploadResponse.class)
             .doOnSuccess(response -> logger.info("Successfully uploaded file via Gateway. Response: {}", response))
@@ -110,5 +110,23 @@ public class GatewayController {
         .bodyToMono(Resource.class)
         .doOnSuccess(resource -> logger.info("Successfully retrieved fileId: {}. Resource: {}", fileId, resource.getFilename()))
         .doOnError(error -> logger.error("Error downloading fileId {}: {}", fileId, error.getMessage()));
+  }
+
+  /**
+   * Handles requests to retrieve a word cloud image by its ID, proxied through FileAnalysisService.
+   *
+   * @param wordCloudImageId the ID of the word cloud image.
+   * @return A Mono emitting the Resource representing the word cloud image.
+   */
+  @GetMapping("/analysis/wordcloud/{wordCloudImageId}")
+  public Mono<Resource> getWordCloudImage(@PathVariable String wordCloudImageId) {
+    logger.info("API Gateway received request for word cloud imageId: {}", wordCloudImageId);
+    return fileAnalysisServiceWebClient.get()
+        .uri("/api/v1/analysis/wordcloud/{wordCloudImageId}", wordCloudImageId)
+        .accept(MediaType.IMAGE_PNG)
+        .retrieve()
+        .bodyToMono(Resource.class)
+        .doOnSuccess(resource -> logger.info("Successfully retrieved word cloud imageId: {}. Resource: {}", wordCloudImageId, resource.getFilename()))
+        .doOnError(error -> logger.error("Error fetching word cloud imageId {}: {}", wordCloudImageId, error.getMessage()));
   }
 }
