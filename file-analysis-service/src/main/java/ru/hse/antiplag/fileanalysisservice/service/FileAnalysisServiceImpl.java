@@ -91,8 +91,8 @@ public class FileAnalysisServiceImpl implements FileAnalysisService {
     if (existingResultOpt.isPresent()) {
       AnalysisResultEntity existingEntity = existingResultOpt.get();
       logger.info("Found existing analysis result for fileId: {}. Returning cached data.", fileId);
-      existingEntity.setUpdatedAt(LocalDateTime.now()); // Обновляем время доступа/использования
-      analysisResultRepository.save(existingEntity); // Сохраняем обновление времени
+      existingEntity.setUpdatedAt(LocalDateTime.now());
+      analysisResultRepository.save(existingEntity);
       return convertToDto(existingEntity);
     }
 

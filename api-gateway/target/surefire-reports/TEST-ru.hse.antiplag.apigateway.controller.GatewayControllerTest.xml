@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ru.hse.antiplag.apigateway.controller.GatewayControllerTest" time="1.635" tests="6" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="socksProxyHost" value="127.0.0.1"/>
+    <property name="http.proxyHost" value="127.0.0.1"/>
+    <property name="java.specification.version" value="23"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/mregrock/Documents/hse-antiplag/api-gateway/target/test-classes:/Users/mregrock/Documents/hse-antiplag/api-gateway/target/classes:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-webflux/3.2.2/spring-boot-starter-webflux-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.2/spring-boot-starter-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot/3.2.2/spring-boot-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/spring-context/6.1.3/spring-context-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-aop/6.1.3/spring-aop-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-expression/6.1.3/spring-expression-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.2/spring-boot-autoconfigure-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.2/spring-boot-starter-logging-3.2.2.jar:/Users/mregrock/.m2/repository/ch/qos/logback/logback-classic/1.4.14/logback-classic-1.4.14.jar:/Users/mregrock/.m2/repository/ch/qos/logback/logback-core/1.4.14/logback-core-1.4.14.jar:/Users/mregrock/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/Users/mregrock/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/Users/mregrock/.m2/repository/org/slf4j/jul-to-slf4j/2.0.11/jul-to-slf4j-2.0.11.jar:/Users/mregrock/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/mregrock/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.2/spring-boot-starter-json-3.2.2.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-reactor-netty/3.2.2/spring-boot-starter-reactor-netty-3.2.2.jar:/Users/mregrock/.m2/repository/io/projectreactor/netty/reactor-netty-http/1.1.15/reactor-netty-http-1.1.15.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec-http/4.1.105.Final/netty-codec-http-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-common/4.1.105.Final/netty-common-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-buffer/4.1.105.Final/netty-buffer-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-transport/4.1.105.Final/netty-transport-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec/4.1.105.Final/netty-codec-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-handler/4.1.105.Final/netty-handler-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec-http2/4.1.105.Final/netty-codec-http2-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-resolver-dns/4.1.105.Final/netty-resolver-dns-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-resolver/4.1.105.Final/netty-resolver-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec-dns/4.1.105.Final/netty-codec-dns-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.105.Final/netty-resolver-dns-native-macos-4.1.105.Final-osx-x86_64.jar:/Users/mregrock/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.105.Final/netty-resolver-dns-classes-macos-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-transport-native-epoll/4.1.105.Final/netty-transport-native-epoll-4.1.105.Final-linux-x86_64.jar:/Users/mregrock/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.105.Final/netty-transport-native-unix-common-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.105.Final/netty-transport-classes-epoll-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/projectreactor/netty/reactor-netty-core/1.1.15/reactor-netty-core-1.1.15.jar:/Users/mregrock/.m2/repository/io/netty/netty-handler-proxy/4.1.105.Final/netty-handler-proxy-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec-socks/4.1.105.Final/netty-codec-socks-4.1.105.Final.jar:/Users/mregrock/.m2/repository/org/springframework/spring-web/6.1.3/spring-web-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-beans/6.1.3/spring-beans-6.1.3.jar:/Users/mregrock/.m2/repository/io/micrometer/micrometer-observation/1.12.2/micrometer-observation-1.12.2.jar:/Users/mregrock/.m2/repository/io/micrometer/micrometer-commons/1.12.2/micrometer-commons-1.12.2.jar:/Users/mregrock/.m2/repository/org/springframework/spring-webflux/6.1.3/spring-webflux-6.1.3.jar:/Users/mregrock/.m2/repository/io/projectreactor/reactor-core/3.6.2/reactor-core-3.6.2.jar:/Users/mregrock/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-starter-gateway/4.1.0/spring-cloud-starter-gateway-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-starter/4.1.0/spring-cloud-starter-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-context/4.1.0/spring-cloud-context-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/security/spring-security-crypto/6.2.1/spring-security-crypto-6.2.1.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-commons/4.1.0/spring-cloud-commons-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/security/spring-security-rsa/1.1.1/spring-security-rsa-1.1.1.jar:/Users/mregrock/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.74/bcprov-jdk18on-1.74.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-gateway-server/4.1.0/spring-cloud-gateway-server-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.2.2/spring-boot-starter-validation-3.2.2.jar:/Users/mregrock/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.18/tomcat-embed-el-10.1.18.jar:/Users/mregrock/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/Users/mregrock/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/mregrock/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/mregrock/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/Users/mregrock/.m2/repository/io/projectreactor/addons/reactor-extra/3.5.1/reactor-extra-3.5.1.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.2/spring-boot-starter-test-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-test/3.2.2/spring-boot-test-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.2/spring-boot-test-autoconfigure-3.2.2.jar:/Users/mregrock/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/Users/mregrock/.m2/repository/org/slf4j/slf4j-api/2.0.11/slf4j-api-2.0.11.jar:/Users/mregrock/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/Users/mregrock/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/Users/mregrock/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/Users/mregrock/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/Users/mregrock/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/Users/mregrock/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/Users/mregrock/.m2/repository/net/bytebuddy/byte-buddy/1.14.11/byte-buddy-1.14.11.jar:/Users/mregrock/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/Users/mregrock/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/mregrock/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/Users/mregrock/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/Users/mregrock/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/mregrock/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/Users/mregrock/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/mregrock/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/Users/mregrock/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/Users/mregrock/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/Users/mregrock/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/Users/mregrock/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.11/byte-buddy-agent-1.14.11.jar:/Users/mregrock/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/mregrock/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/Users/mregrock/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/Users/mregrock/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/mregrock/.m2/repository/org/springframework/spring-core/6.1.3/spring-core-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-jcl/6.1.3/spring-jcl-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-test/6.1.3/spring-test-6.1.3.jar:/Users/mregrock/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:"/>
+    <property name="https.proxyPort" value="2080"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="23"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/mregrock/Documents/hse-antiplag/api-gateway/target/surefire/surefirebooter-20250521225557296_3.jar /Users/mregrock/Documents/hse-antiplag/api-gateway/target/surefire 2025-05-21T22-55-57_258-jvmRun1 surefire-20250521225557296_1tmp surefire_0-20250521225557296_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/mregrock/Documents/hse-antiplag/api-gateway/target/test-classes:/Users/mregrock/Documents/hse-antiplag/api-gateway/target/classes:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-webflux/3.2.2/spring-boot-starter-webflux-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.2/spring-boot-starter-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot/3.2.2/spring-boot-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/spring-context/6.1.3/spring-context-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-aop/6.1.3/spring-aop-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-expression/6.1.3/spring-expression-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.2/spring-boot-autoconfigure-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.2/spring-boot-starter-logging-3.2.2.jar:/Users/mregrock/.m2/repository/ch/qos/logback/logback-classic/1.4.14/logback-classic-1.4.14.jar:/Users/mregrock/.m2/repository/ch/qos/logback/logback-core/1.4.14/logback-core-1.4.14.jar:/Users/mregrock/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/Users/mregrock/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/Users/mregrock/.m2/repository/org/slf4j/jul-to-slf4j/2.0.11/jul-to-slf4j-2.0.11.jar:/Users/mregrock/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/mregrock/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.2/spring-boot-starter-json-3.2.2.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/Users/mregrock/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-reactor-netty/3.2.2/spring-boot-starter-reactor-netty-3.2.2.jar:/Users/mregrock/.m2/repository/io/projectreactor/netty/reactor-netty-http/1.1.15/reactor-netty-http-1.1.15.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec-http/4.1.105.Final/netty-codec-http-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-common/4.1.105.Final/netty-common-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-buffer/4.1.105.Final/netty-buffer-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-transport/4.1.105.Final/netty-transport-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec/4.1.105.Final/netty-codec-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-handler/4.1.105.Final/netty-handler-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec-http2/4.1.105.Final/netty-codec-http2-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-resolver-dns/4.1.105.Final/netty-resolver-dns-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-resolver/4.1.105.Final/netty-resolver-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec-dns/4.1.105.Final/netty-codec-dns-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.105.Final/netty-resolver-dns-native-macos-4.1.105.Final-osx-x86_64.jar:/Users/mregrock/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.105.Final/netty-resolver-dns-classes-macos-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-transport-native-epoll/4.1.105.Final/netty-transport-native-epoll-4.1.105.Final-linux-x86_64.jar:/Users/mregrock/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.105.Final/netty-transport-native-unix-common-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.105.Final/netty-transport-classes-epoll-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/projectreactor/netty/reactor-netty-core/1.1.15/reactor-netty-core-1.1.15.jar:/Users/mregrock/.m2/repository/io/netty/netty-handler-proxy/4.1.105.Final/netty-handler-proxy-4.1.105.Final.jar:/Users/mregrock/.m2/repository/io/netty/netty-codec-socks/4.1.105.Final/netty-codec-socks-4.1.105.Final.jar:/Users/mregrock/.m2/repository/org/springframework/spring-web/6.1.3/spring-web-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-beans/6.1.3/spring-beans-6.1.3.jar:/Users/mregrock/.m2/repository/io/micrometer/micrometer-observation/1.12.2/micrometer-observation-1.12.2.jar:/Users/mregrock/.m2/repository/io/micrometer/micrometer-commons/1.12.2/micrometer-commons-1.12.2.jar:/Users/mregrock/.m2/repository/org/springframework/spring-webflux/6.1.3/spring-webflux-6.1.3.jar:/Users/mregrock/.m2/repository/io/projectreactor/reactor-core/3.6.2/reactor-core-3.6.2.jar:/Users/mregrock/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-starter-gateway/4.1.0/spring-cloud-starter-gateway-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-starter/4.1.0/spring-cloud-starter-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-context/4.1.0/spring-cloud-context-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/security/spring-security-crypto/6.2.1/spring-security-crypto-6.2.1.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-commons/4.1.0/spring-cloud-commons-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/security/spring-security-rsa/1.1.1/spring-security-rsa-1.1.1.jar:/Users/mregrock/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.74/bcprov-jdk18on-1.74.jar:/Users/mregrock/.m2/repository/org/springframework/cloud/spring-cloud-gateway-server/4.1.0/spring-cloud-gateway-server-4.1.0.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.2.2/spring-boot-starter-validation-3.2.2.jar:/Users/mregrock/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.18/tomcat-embed-el-10.1.18.jar:/Users/mregrock/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/Users/mregrock/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/mregrock/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/mregrock/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/Users/mregrock/.m2/repository/io/projectreactor/addons/reactor-extra/3.5.1/reactor-extra-3.5.1.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.2/spring-boot-starter-test-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-test/3.2.2/spring-boot-test-3.2.2.jar:/Users/mregrock/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.2/spring-boot-test-autoconfigure-3.2.2.jar:/Users/mregrock/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/Users/mregrock/.m2/repository/org/slf4j/slf4j-api/2.0.11/slf4j-api-2.0.11.jar:/Users/mregrock/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/Users/mregrock/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/Users/mregrock/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/Users/mregrock/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/Users/mregrock/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/Users/mregrock/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/Users/mregrock/.m2/repository/net/bytebuddy/byte-buddy/1.14.11/byte-buddy-1.14.11.jar:/Users/mregrock/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/Users/mregrock/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/mregrock/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/Users/mregrock/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/Users/mregrock/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/mregrock/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/Users/mregrock/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/mregrock/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/Users/mregrock/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/Users/mregrock/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/Users/mregrock/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/Users/mregrock/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.11/byte-buddy-agent-1.14.11.jar:/Users/mregrock/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/mregrock/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/Users/mregrock/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/Users/mregrock/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/mregrock/.m2/repository/org/springframework/spring-core/6.1.3/spring-core-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-jcl/6.1.3/spring-jcl-6.1.3.jar:/Users/mregrock/.m2/repository/org/springframework/spring-test/6.1.3/spring-test-6.1.3.jar:/Users/mregrock/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/mregrock"/>
+    <property name="user.language" value="ru"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="https.proxyHost" value="127.0.0.1"/>
+    <property name="basedir" value="/Users/mregrock/Documents/hse-antiplag/api-gateway"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/mregrock/Documents/hse-antiplag/api-gateway/target/surefire/surefirebooter-20250521225557296_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="23.0.2"/>
+    <property name="user.name" value="mregrock"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="14.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/mregrock/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/dy/7ytpckbd3nb69gn39h5m5c_r0000gn/T/"/>
+    <property name="java.version" value="23.0.2"/>
+    <property name="user.dir" value="/Users/mregrock/Documents/hse-antiplag/api-gateway"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="socksProxyPort" value="2080"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="11013"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/mregrock/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="23.0.2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="67.0"/>
+    <property name="http.proxyPort" value="2080"/>
+  </properties>
+  <testcase name="uploadFile_whenStorageFails_shouldReturnErrorStatus" classname="ru.hse.antiplag.apigateway.controller.GatewayControllerTest" time="0.214">
+    <system-out><![CDATA[22:55:57.703 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ru.hse.antiplag.apigateway.controller.GatewayControllerTest]: GatewayControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:55:57.783 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ru.hse.antiplag.apigateway.ApiGatewayApplication for test class ru.hse.antiplag.apigateway.controller.GatewayControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+&amp#27;[32m :: Spring Boot :: &amp#27;[39m              &amp#27;[2m (v3.2.2)&amp#27;[0;39m
+
+&amp#27;[2m2025-05-21T22:55:58.002+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[           main]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.c.GatewayControllerTest         &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Starting GatewayControllerTest using Java 23.0.2 with PID 11013 (started by mregrock in /Users/mregrock/Documents/hse-antiplag/api-gateway)
+&amp#27;[2m2025-05-21T22:55:58.003+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[           main]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.c.GatewayControllerTest         &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m No active profile set, falling back to 1 default profile: "default"
+&amp#27;[2m2025-05-21T22:55:58.937+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[           main]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.c.GatewayControllerTest         &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Started GatewayControllerTest in 1.119 seconds (process running for 1.602)
+&amp#27;[2m2025-05-21T22:55:59.091+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-1]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m API Gateway received request to upload a file (via partsMono).
+&amp#27;[2m2025-05-21T22:55:59.126+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[oundedElastic-2]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Part name: file, Part headers: [Content-Disposition:"form-data; name="file"", Content-Type:"application/octet-stream", Content-Length:"15"]
+&amp#27;[2m2025-05-21T22:55:59.127+03:00&amp#27;[0;39m &amp#27;[31mERROR&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[oundedElastic-2]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Error during file upload via Gateway. Error: Storage Service Error
+
+java.lang.RuntimeException: Storage Service Error
+	at ru.hse.antiplag.apigateway.controller.GatewayControllerTest.uploadFile_whenStorageFails_shouldReturnErrorStatus(GatewayControllerTest.java:127) ~[test-classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.1.jar:1.10.1]
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+&amp#27;[2m2025-05-21T22:55:59.136+03:00&amp#27;[0;39m &amp#27;[31mERROR&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[oundedElastic-2]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36ma.w.r.e.AbstractErrorWebExceptionHandler&amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m [e9ce620]  500 Server Error for HTTP POST "/api/gateway/upload"
+
+java.lang.RuntimeException: Storage Service Error
+	at ru.hse.antiplag.apigateway.controller.GatewayControllerTest.uploadFile_whenStorageFails_shouldReturnErrorStatus(GatewayControllerTest.java:127) ~[test-classes/:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler ru.hse.antiplag.apigateway.controller.GatewayController#uploadFile(Mono) [DispatcherHandler]
+	*__checkpoint ⇢ HTTP POST "/api/gateway/upload" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at ru.hse.antiplag.apigateway.controller.GatewayControllerTest.uploadFile_whenStorageFails_shouldReturnErrorStatus(GatewayControllerTest.java:127) ~[test-classes/:na]
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+		at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.1.jar:1.10.1]
+		at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+]]></system-out>
+    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/mregrock/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.11/byte-buddy-agent-1.14.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+  <testcase name="analyzeFile_whenAnalysisSucceeds_shouldReturnResult" classname="ru.hse.antiplag.apigateway.controller.GatewayControllerTest" time="0.031">
+    <system-out><![CDATA[&amp#27;[2m2025-05-21T22:55:59.163+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-2]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m API Gateway received request to analyze fileId: test-aboba-id
+&amp#27;[2m2025-05-21T22:55:59.165+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-2]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Successfully retrieved analysis for fileId: test-aboba-id. Result: GatewayAnalysisResult{textStatistics=GatewayTextStatistics{paragraphCount=1, wordCount=10, characterCount=100}, wordCloudPath='/path/to/cloud-aboba.png'}
+]]></system-out>
+  </testcase>
+  <testcase name="analyzeFile_whenAnalysisServiceFails_shouldReturnErrorStatus" classname="ru.hse.antiplag.apigateway.controller.GatewayControllerTest" time="0.006">
+    <system-out><![CDATA[&amp#27;[2m2025-05-21T22:55:59.192+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-3]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m API Gateway received request to analyze fileId: fail-aboba-id
+&amp#27;[2m2025-05-21T22:55:59.192+03:00&amp#27;[0;39m &amp#27;[31mERROR&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-3]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Error during analysis call for fileId: fail-aboba-id. Error: Service Unavailable
+&amp#27;[2m2025-05-21T22:55:59.193+03:00&amp#27;[0;39m &amp#27;[31mERROR&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-3]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36ma.w.r.e.AbstractErrorWebExceptionHandler&amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m [249e0190]  500 Server Error for HTTP GET "/api/gateway/analyze/fail-aboba-id"
+
+java.lang.RuntimeException: Service Unavailable
+	at ru.hse.antiplag.apigateway.controller.GatewayControllerTest.analyzeFile_whenAnalysisServiceFails_shouldReturnErrorStatus(GatewayControllerTest.java:99) ~[test-classes/:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler ru.hse.antiplag.apigateway.controller.GatewayController#analyzeFile(String) [DispatcherHandler]
+	*__checkpoint ⇢ HTTP GET "/api/gateway/analyze/fail-aboba-id" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at ru.hse.antiplag.apigateway.controller.GatewayControllerTest.analyzeFile_whenAnalysisServiceFails_shouldReturnErrorStatus(GatewayControllerTest.java:99) ~[test-classes/:na]
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+		at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.1.jar:1.10.1]
+		at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+]]></system-out>
+  </testcase>
+  <testcase name="downloadFile_whenStorageSucceeds_shouldReturnFileResource" classname="ru.hse.antiplag.apigateway.controller.GatewayControllerTest" time="0.013">
+    <system-out><![CDATA[&amp#27;[2m2025-05-21T22:55:59.199+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-4]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m API Gateway received request to download fileId: test-download-aboba
+&amp#27;[2m2025-05-21T22:55:59.204+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-4]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Successfully retrieved fileId: test-download-aboba. Resource: null
+]]></system-out>
+  </testcase>
+  <testcase name="uploadFile_whenStorageSucceeds_shouldReturnUploadResponse" classname="ru.hse.antiplag.apigateway.controller.GatewayControllerTest" time="0.008">
+    <system-out><![CDATA[&amp#27;[2m2025-05-21T22:55:59.214+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-5]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m API Gateway received request to upload a file (via partsMono).
+&amp#27;[2m2025-05-21T22:55:59.216+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[oundedElastic-2]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Part name: file, Part headers: [Content-Disposition:"form-data; name="file"", Content-Type:"application/octet-stream", Content-Length:"10"]
+&amp#27;[2m2025-05-21T22:55:59.217+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[oundedElastic-2]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Successfully uploaded file via Gateway. Response: FileUploadResponse{id=ee7d030d-5e24-4a35-8fb8-854bfc10c05f, fileName='test-file.txt'}
+]]></system-out>
+  </testcase>
+  <testcase name="downloadFile_whenStorageFails_shouldReturnErrorStatus" classname="ru.hse.antiplag.apigateway.controller.GatewayControllerTest" time="0.007">
+    <system-out><![CDATA[&amp#27;[2m2025-05-21T22:55:59.223+03:00&amp#27;[0;39m &amp#27;[32m INFO&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-6]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m API Gateway received request to download fileId: fail-download-aboba
+&amp#27;[2m2025-05-21T22:55:59.224+03:00&amp#27;[0;39m &amp#27;[31mERROR&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-6]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36mr.h.a.a.controller.GatewayController    &amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m Error downloading fileId fail-download-aboba: Storage Not Found
+&amp#27;[2m2025-05-21T22:55:59.224+03:00&amp#27;[0;39m &amp#27;[31mERROR&amp#27;[0;39m &amp#27;[35m11013&amp#27;[0;39m &amp#27;[2m---&amp#27;[0;39m &amp#27;[2m[     parallel-6]&amp#27;[0;39m &amp#27;[2m&amp#27;[0;39m&amp#27;[36ma.w.r.e.AbstractErrorWebExceptionHandler&amp#27;[0;39m &amp#27;[2m:&amp#27;[0;39m [8a700a4]  500 Server Error for HTTP GET "/api/gateway/download/fail-download-aboba"
+
+java.lang.RuntimeException: Storage Not Found
+	at ru.hse.antiplag.apigateway.controller.GatewayControllerTest.downloadFile_whenStorageFails_shouldReturnErrorStatus(GatewayControllerTest.java:159) ~[test-classes/:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler ru.hse.antiplag.apigateway.controller.GatewayController#downloadFile(String) [DispatcherHandler]
+	*__checkpoint ⇢ HTTP GET "/api/gateway/download/fail-download-aboba" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at ru.hse.antiplag.apigateway.controller.GatewayControllerTest.downloadFile_whenStorageFails_shouldReturnErrorStatus(GatewayControllerTest.java:159) ~[test-classes/:na]
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+		at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728) ~[junit-platform-commons-1.10.1.jar:1.10.1]
+		at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.1.jar:5.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.10.1.jar:1.10.1]
+		at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122) ~[surefire-junit-platform-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.2.5.jar:3.2.5]
+		at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.2.5.jar:3.2.5]
+
+]]></system-out>
+  </testcase>
+</testsuite>

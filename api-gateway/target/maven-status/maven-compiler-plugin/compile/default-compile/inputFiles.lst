@@ -1,0 +1,6 @@
+/Users/mregrock/Documents/hse-antiplag/api-gateway/src/main/java/ru/hse/antiplag/apigateway/ApiGatewayApplication.java
+/Users/mregrock/Documents/hse-antiplag/api-gateway/src/main/java/ru/hse/antiplag/apigateway/config/WebClientConfig.java
+/Users/mregrock/Documents/hse-antiplag/api-gateway/src/main/java/ru/hse/antiplag/apigateway/controller/GatewayController.java
+/Users/mregrock/Documents/hse-antiplag/api-gateway/src/main/java/ru/hse/antiplag/apigateway/dto/FileUploadResponse.java
+/Users/mregrock/Documents/hse-antiplag/api-gateway/src/main/java/ru/hse/antiplag/apigateway/dto/GatewayAnalysisResult.java
+/Users/mregrock/Documents/hse-antiplag/api-gateway/src/main/java/ru/hse/antiplag/apigateway/dto/GatewayTextStatistics.java

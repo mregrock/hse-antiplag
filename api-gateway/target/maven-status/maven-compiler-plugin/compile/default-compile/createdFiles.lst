@@ -1,0 +1,6 @@
+ru/hse/antiplag/apigateway/controller/GatewayController.class
+ru/hse/antiplag/apigateway/ApiGatewayApplication.class
+ru/hse/antiplag/apigateway/config/WebClientConfig.class
+ru/hse/antiplag/apigateway/dto/GatewayTextStatistics.class
+ru/hse/antiplag/apigateway/dto/FileUploadResponse.class
+ru/hse/antiplag/apigateway/dto/GatewayAnalysisResult.class
