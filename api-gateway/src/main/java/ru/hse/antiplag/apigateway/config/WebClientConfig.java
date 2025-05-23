@@ -13,10 +13,10 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
-  @Value("${services.file-analysis.base-url:http://localhost:8081}")
+  @Value("${services.file-analysis.base-url:http://localhost:9090}")
   private String fileAnalysisServiceBaseUrl;
 
-  @Value("${services.file-storage.base-url:http://localhost:8080}")
+  @Value("${services.file-storage.base-url:http://localhost:9001}")
   private String fileStorageServiceBaseUrl;
 
   /**

@@ -67,8 +67,18 @@ public class FileStorageServiceImpl implements FileStorageService {
 
     Optional<FileEntity> existingFile = fileRepository.findByHash(hash);
     if (existingFile.isPresent()) {
-      logger.info("File with hash {} already exists. Returning existing file.", hash);
-      return existingFile.get();
+      FileEntity existingEntity = existingFile.get();
+      Path existingFilePath = Paths.get(existingEntity.getFilePath());
+      
+      if (Files.exists(existingFilePath) && Files.isReadable(existingFilePath)) {
+        logger.info("File with hash {} already exists and is accessible. Returning existing file.", hash);
+        return existingEntity;
+      } else {
+        logger.warn("File with hash {} exists in database but physical file is missing: {}. Removing record and creating new file.", 
+                   hash, existingFilePath);
+        fileRepository.delete(existingEntity);
+        fileRepository.flush();
+      }
     }
 
     String fileExtension = "";
